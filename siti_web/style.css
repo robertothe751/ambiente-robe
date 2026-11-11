@@ -1,0 +1,320 @@
+/* ==========================================================================
+   VARIABILI GLOBALI
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+
+  --bg-main: #121212;
+  --bg-card: #1e1e1e;
+  --bg-input: #2c2c2c;
+
+  --border-color: #444444;
+
+  --text-main: #ffffff;
+  --text-muted: #e0e0e0;
+  --text-label: #b0b0b0;
+
+  --accent-color: #689cd9;
+  --accent-hover: #5784b9;
+
+  --notif-success-bg: #1b4d2e;
+  --notif-success-border: #2e7d32;
+  --notif-success-text: #c8e6c9;
+  --notif-error-bg: #5c1d1d;
+  --notif-error-border: #c62828;
+  --notif-error-text: #ffcdd2;
+  --notif-info-bg: #1c3b57;
+  --notif-info-border: #1565c0;
+  --notif-info-text: #bbdefb;
+
+  --radius-sm: 0.4rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.8rem;
+  --space-xs: 0.4rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: var(--space-lg) var(--space-md);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-muted);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 450px;
+}
+
+h1 {
+  margin: 0 0 var(--space-md);
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  color: var(--text-main);
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   CARD E NAVIGAZIONE
+   ========================================================================== */
+.card-box,
+.nav-box {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.5);
+}
+
+.nav-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.nav-link {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  max-width: 220px;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-input);
+  color: var(--text-label);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:is(:hover, .active) {
+  background-color: var(--accent-color);
+  color: var(--bg-main);
+}
+
+/* ==========================================================================
+   FORM
+   ========================================================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  width: 100%;
+}
+
+.form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-label);
+}
+
+input:is([type="text"], [type="password"]),
+select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+input:is([type="text"], [type="password"]):focus,
+select:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--bg-main);
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--text-main);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   COMPONENTI
+   ========================================================================== */
+.wifi-select-container,
+.pass-container {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.wifi-select-container select,
+.pass-container input {
+  flex: 1;
+}
+
+.wifi-select-container button,
+.pass-container button {
+  flex-shrink: 0;
+  width: auto;
+  min-width: 3rem;
+  padding: 0.75rem 1rem;
+  white-space: nowrap;
+}
+
+.pass-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pass-container .eye-open,
+.pass-container button.visible .eye-closed {
+  display: none;
+}
+
+.pass-container button.visible .eye-open {
+  display: block;
+}
+
+/* ==========================================================================
+   NOTIFICHE
+   ========================================================================== */
+#notifica {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: var(--space-md);
+  padding: 0.75rem var(--space-md);
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+#notifica[hidden] {
+  display: none;
+}
+
+#notifica.success {
+  background-color: var(--notif-success-bg);
+  border-color: var(--notif-success-border);
+  color: var(--notif-success-text);
+}
+
+#notifica.error {
+  background-color: var(--notif-error-bg);
+  border-color: var(--notif-error-border);
+  color: var(--notif-error-text);
+}
+
+#notifica.info {
+  background-color: var(--notif-info-bg);
+  border-color: var(--notif-info-border);
+  color: var(--notif-info-text);
+}
+
+/* ==========================================================================
+   DIAGNOSTICA
+   ========================================================================== */
+.diag-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-lg);
+  text-align: left;
+}
+
+.diag-card h2 {
+  font-size: 1.5rem;
+}
+
+.diag-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.diag-item {
+  display: block;
+  width: 100%;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.diag-card #notifica {
+  max-width: none;
+  margin-bottom: 0;
+}
+
+.diag-card button {
+  font-size: 1.1rem;
+  padding: 1rem;
+}

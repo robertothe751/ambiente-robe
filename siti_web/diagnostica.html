@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagnostica ESP</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="diagnostica.js" defer></script>
+</head>
+<body>
+
+  <div class="section">
+    <h1>Diagnostica ESP</h1>
+
+    <!-- Menu di navigazione -->
+    <nav class="nav-box">
+      <a href="index.html" class="nav-link">Impostazioni</a>
+      <a href="diagnostica.html" class="nav-link active">Diagnostica</a>
+    </nav>
+
+    <div class="card-box diag-card">
+      <h2>Stato del Sistema</h2>
+
+      <div class="diag-list">
+        <span id="diag-ssid" class="diag-item">Rete: ---</span>
+        <span id="diag-network-status" class="diag-item">Stato Rete: ---</span>
+        <span id="diag-last-sync" class="diag-item">Ultima Sincronizzazione: ---</span>
+        <span id="diag-firmware" class="diag-item">Firmware: ---</span>
+      </div>
+
+      <div id="notifica" hidden></div>
+      <button type="button" id="btnResetWifi">Reset Wifi</button>
+      <button type="button" id="btnRebootEsp">Riavvio ESP32</button>
+      <button type="button" id="btnResetEsp">Reset ESP32</button>
+      </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configurazione Wi-Fi ESP32</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <div class="section">
+    <h1>Configurazione Wi-Fi</h1>
+
+    <!-- Menu di navigazione -->
+    <nav class="nav-box">
+      <a href="index.html" class="nav-link active">Wi-Fi</a>
+      <a href="diagnostica.html" class="nav-link">Diagnostica</a>
+    </nav>
+
+    <div id="notifica" hidden></div>
+
+    <div class="card-box">
+      <form id="configForm">
+
+        <div class="form-col" style="grid-column: 1 / -1;">
+          
+          <!-- Selezione Rete -->
+          <div class="field">
+            <label for="ssid">Rete Wi-Fi:</label>
+            <div class="wifi-select-container">
+              <select id="ssid" name="ssid">
+                <option value="">Scansione in corso...</option>
+              </select>
+              <button type="button" id="btnAggiornaReti" title="Aggiorna reti">&#8635;</button>
+            </div>
+          </div>
+
+          <!-- Inserimento Password -->
+          <div class="field">
+            <label for="pass">Password:</label>
+            <div class="pass-container">
+              <input type="password" id="pass" name="pass" placeholder="Inserisci password">
+              <button type="button" id="btnTogglePass" aria-label="Mostra password">
+                <svg class="eye-closed" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="3" y1="3" x2="21" y2="21"/></svg>
+                <svg class="eye-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="button" id="btnConnettiWifi">Connetti Wi-Fi</button>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
